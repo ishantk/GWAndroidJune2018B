@@ -3,6 +3,8 @@ package com.auribises.gw2018b;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -78,5 +80,67 @@ public class ActivityOne extends AppCompatActivity {
             eTxtName.setText(name);
             eTxtEmail.setText(email);
         }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        // Explicit Menu Creation
+        menu.add(1,101,1,"AllSongs");
+        menu.add(1,201,1,"Favourites");
+        menu.add(1,301,1,"Artists");
+        menu.add(1,401,1,"Albums");
+        menu.add(1,501,1,"Recently Played");
+
+        // Implicit Menu Creation
+        //getMenuInflater().inflate(R.menu.menu_activityone,menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id){
+            case 101:
+
+                Intent intent = new Intent(ActivityOne.this,AllSongsActivity.class);
+                startActivity(intent);
+
+                Toast.makeText(this,"All Songs Selected",Toast.LENGTH_LONG).show();
+                break;
+
+            case 201:
+
+                break;
+
+            case 301:
+
+                break;
+
+            case 401:
+
+                break;
+
+            case 501:
+
+                break;
+
+            case R.id.bbc:
+
+                break;
+
+            case R.id.aaj:
+
+                Intent intent1 = new Intent(ActivityOne.this,NewsActivity.class);
+                startActivity(intent1);
+
+                Toast.makeText(this,"Aaj Tak Selected",Toast.LENGTH_LONG).show();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

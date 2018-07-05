@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="NDTV"
+        android:id="@+id/ndtv"
+        />
+    <item android:title="BBC"
+        android:id="@+id/bbc"
+        />
+    <item android:title="Zee News"
+        app:showAsAction="ifRoom"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:id="@+id/zee"
+        />
+    <item android:title="Aaj Tak"
+        android:icon="@drawable/at"
+        app:showAsAction="ifRoom"
+        android:id="@+id/aaj"
+        />
+
+</menu>
