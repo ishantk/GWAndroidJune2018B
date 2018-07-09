@@ -14,20 +14,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".ActivityOne">
-
-        </activity>
+        <activity android:name=".ActivityOne" />
         <activity android:name=".ActivityTwo" />
         <activity android:name=".AllSongsActivity" />
         <activity android:name=".NewsActivity" />
         <activity android:name=".LayoutDemoActivity" />
-        <activity android:name=".JSONParserActivity">
+        <activity android:name=".JSONParserActivity" />
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ViewsActivity" />
+        <activity android:name=".DialogsActivity"></activity>
     </application>
 
 </manifest>
