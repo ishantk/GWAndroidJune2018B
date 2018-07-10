@@ -28,7 +28,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".ViewsActivity" />
-        <activity android:name=".DialogsActivity"></activity>
+        <activity android:name=".DialogsActivity" />
+        <activity android:name=".PersistanceActivity" />
+        <activity android:name=".PlayActivity">
+            <intent-filter>
+                <action android:name="com.auribises.gw2018b.playactivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".MyMusicService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
