@@ -17,7 +17,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     void initViews(){
         txtSongName = findViewById(R.id.textViewSongName);
         btnPlay = findViewById(R.id.buttonPlay);
-        btnStop = findViewById(R.id.buttonStop);
+        btnStop = findViewById(R.id.buttonStop); // IOC
 
         btnPlay.setOnClickListener(this);
         btnStop.setOnClickListener(this);

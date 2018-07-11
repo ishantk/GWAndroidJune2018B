@@ -41,7 +41,9 @@
         <service
             android:name=".MyMusicService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity android:name=".AllStudentsActivity"></activity>
     </application>
 
 </manifest>
