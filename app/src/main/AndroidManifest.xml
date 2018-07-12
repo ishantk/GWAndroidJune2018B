@@ -43,7 +43,8 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".AllStudentsActivity"></activity>
+        <activity android:name=".AllStudentsActivity" />
+        <activity android:name=".MyFragmentsActivity"></activity>
     </application>
 
 </manifest>
