@@ -17,6 +17,9 @@ public class MyFragmentsActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().add(R.id.upperFrame,upperFragment).commit();
         fragmentManager.beginTransaction().add(R.id.lowerFrame,lowerFragment).commit();
 
+        //fragmentManager.beginTransaction().replace(R.id.upperFrame,lowerFragment).commit();
+        //fragmentManager.beginTransaction().remove(upperFragment).commit();
+
     }
 
     @Override
