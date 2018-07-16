@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_music"
@@ -56,7 +59,8 @@
             android:name=".MyNavigationActivity"
             android:label="@string/title_activity_my_navigation"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".DateTimeActivity"></activity>
+        <activity android:name=".DateTimeActivity" />
+        <activity android:name=".MyLocationActivity"></activity>
     </application>
 
 </manifest>
