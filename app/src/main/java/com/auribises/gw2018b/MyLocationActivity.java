@@ -1,6 +1,7 @@
 package com.auribises.gw2018b;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -31,6 +32,8 @@ public class MyLocationActivity extends AppCompatActivity implements View.OnClic
 
     LocationManager locationManager;
 
+    ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +44,17 @@ public class MyLocationActivity extends AppCompatActivity implements View.OnClic
         btnFetch.setOnClickListener(this);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Fetching Lcoation...");
     }
 
     @Override
     public void onLocationChanged(Location location) {
+
+        if(progressDialog.isShowing()){
+            progressDialog.dismiss();
+        }
 
         double latitude = location.getLatitude();
         double longitude = location.getLongitude();
@@ -103,6 +113,7 @@ public class MyLocationActivity extends AppCompatActivity implements View.OnClic
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(this,"Please Grant Permissions to access Location in Settings",Toast.LENGTH_LONG).show();
             }else {
+                progressDialog.show();
                 locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 10, 10, this);
             }
 
