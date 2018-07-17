@@ -1,5 +1,6 @@
 package com.auribises.gw2018b;
 
+import android.app.NotificationManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -65,6 +66,10 @@ public class AllStudentsActivity extends AppCompatActivity implements AdapterVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_students);
         initViews();
+
+        NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.cancel(101);
+
     }
 
     @Override
