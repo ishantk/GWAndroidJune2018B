@@ -75,6 +75,14 @@
                 <action android:name="p.q.r.s" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".ui.RegisterUserActivity" />
+
+        <provider
+            android:name=".provider.MyContentProvider"
+            android:authorities="com.auribises.gw2018b.mycp"
+            android:enabled="true"
+            android:exported="true"></provider>
     </application>
 
 </manifest>

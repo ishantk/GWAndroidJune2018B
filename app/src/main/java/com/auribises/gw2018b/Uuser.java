@@ -2,16 +2,16 @@ package com.auribises.gw2018b;
 
 import java.io.Serializable;
 
-public class User implements Serializable{
+public class Uuser implements Serializable{
 
     public String name;
     public String email;
 
-    public User(){
+    public Uuser(){
 
     }
 
-    public User(String name, String email) {
+    public Uuser(String name, String email) {
         this.name = name;
         this.email = email;
     }
