@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -67,6 +69,13 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
 
         btnRegister.setOnClickListener(this);
         user = new User();
+
+        Animation animation1 = AnimationUtils.loadAnimation(this,R.anim.alpha_anim);
+        Animation animation2 = AnimationUtils.loadAnimation(this,R.anim.rotate_anim);
+
+        eTxtName.startAnimation(animation1);
+        btnRegister.startAnimation(animation2);
+
 
         resolver = getContentResolver();
     }
