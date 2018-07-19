@@ -21,9 +21,9 @@ public class User {
     @Override
     public String toString() {
         return "Id: " + id +
-                "Name: " + name +
-                "Phone: " + phone +
-                "Email: " + email;
+                "\nName: " + name +
+                "\nPhone: " + phone +
+                "\nEmail: " + email;
 
     }
 }

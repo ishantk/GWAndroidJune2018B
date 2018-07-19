@@ -1,5 +1,7 @@
 package com.auribises.gw2018b;
 
+import android.net.Uri;
+
 public class Util {
 
     public static final int DB_VERSION = 1;
@@ -19,5 +21,5 @@ public class Util {
             "EMAIL varchar(256)" +
             ")";
 
-
+    public static final Uri USER_URI = Uri.parse("content://com.auribises.gw2018b.mycp/"+TAB_NAME);
 }

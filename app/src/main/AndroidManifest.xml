@@ -82,7 +82,9 @@
             android:name=".provider.MyContentProvider"
             android:authorities="com.auribises.gw2018b.mycp"
             android:enabled="true"
-            android:exported="true"></provider>
+            android:exported="true" />
+
+        <activity android:name=".ui.AllUsersActivity"></activity>
     </application>
 
 </manifest>
