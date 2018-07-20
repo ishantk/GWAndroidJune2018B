@@ -1,11 +1,17 @@
 package com.auribises.gw2018b.ui;
 
 import android.content.ContentResolver;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.auribises.gw2018b.R;
 import com.auribises.gw2018b.Util;
@@ -17,7 +23,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AllUsersActivity extends AppCompatActivity {
+public class AllUsersActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
     @BindView(R.id.listView)
     ListView listView;
@@ -30,6 +36,9 @@ public class AllUsersActivity extends AppCompatActivity {
     ContentResolver resolver;
 
     UsersAdapter usersAdapter;
+
+    int pos;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +81,87 @@ public class AllUsersActivity extends AppCompatActivity {
             //usersAdapter = new UsersAdapter(this,R.layout.list_item,users);
 
             listView.setAdapter(adapter);
-
+            listView.setOnItemClickListener(this);
         }
 
+    }
+
+    void deleteUserFromDB(){
+
+        String where = Util.COL_ID+" = "+user.id;
+        int i = resolver.delete(Util.USER_URI,where,null);
+
+        if(i>0){
+            Toast.makeText(this,user.name+" Deleted: "+i,Toast.LENGTH_LONG).show();
+
+            users.remove(pos);
+            users1.remove(pos);
+
+            // Refresh the ListView
+            adapter.notifyDataSetChanged();
+
+
+        }else{
+            Toast.makeText(this,user.name+" Not Deleted",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    void askForDeletion(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete "+user.name);
+        builder.setMessage("Are You Sure ?");
+        builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                deleteUserFromDB();
+            }
+        });
+        builder.setNegativeButton("Cancel",null);
+        builder.create().show();
+    }
+
+    void showDetails(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Details of "+user.name);
+        builder.setMessage(user.toString());
+        builder.setPositiveButton("Done",null);
+        builder.create().show();
+    }
+
+    void showOptions(){
+        String[] items = {"View","Delete","Update","Cancel"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case 0:
+                        showDetails();
+                        break;
+
+                    case 1:
+                        askForDeletion();
+                        break;
+
+                    case 2:
+                        Intent intent = new Intent(AllUsersActivity.this,RegisterUserActivity.class);
+                        intent.putExtra("keyUser",user);
+                        startActivity(intent);
+                        break;
+
+                    case 3:
+                        finish();
+                        break;
+                }
+            }
+        });
+        builder.create().show();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        pos = position;
+        user = users.get(position);
+        showOptions();
     }
 }
