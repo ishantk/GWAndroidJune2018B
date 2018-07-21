@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.auribises.gw2018b.ui.RegisterUserActivity;
+import com.auribises.gw2018b.weekend.FragmentsActivity;
+import com.auribises.gw2018b.weekend.MyNavActivity;
+import com.auribises.gw2018b.weekend.VPActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -26,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
             if(msg.what == 101){
-                Intent intent = new Intent(SplashActivity.this,RegisterUserActivity.class);
+                Intent intent = new Intent(SplashActivity.this,VPActivity.class);
                 startActivity(intent);
                 finish();
             }

@@ -20,4 +20,6 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
+    <string name="title_activity_my_nav">MyNavActivity</string>
+    <string name="title_activity_vp">VPActivity</string>
 </resources>

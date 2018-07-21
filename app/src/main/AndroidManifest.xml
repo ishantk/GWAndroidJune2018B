@@ -8,9 +8,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -88,7 +88,16 @@
             android:exported="true" />
 
         <activity android:name=".ui.AllUsersActivity" />
-        <activity android:name=".VoiceRecognitionActivity"></activity>
+        <activity android:name=".VoiceRecognitionActivity" />
+        <activity android:name=".weekend.FragmentsActivity" />
+        <activity
+            android:name=".weekend.MyNavActivity"
+            android:label="@string/title_activity_my_nav"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".weekend.VPActivity"
+            android:label="@string/title_activity_vp"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
