@@ -65,10 +65,11 @@ public class AllStudentsActivity extends AppCompatActivity implements AdapterVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_students);
+
         initViews();
 
         NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-        notificationManager.cancel(101);
+        notificationManager.cancel(123);
 
     }
 

@@ -97,7 +97,21 @@
         <activity
             android:name=".weekend.VPActivity"
             android:label="@string/title_activity_vp"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".weekend.BroadcastActivity" />
+
+        <receiver
+            android:name=".weekend.OurBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+
+        </receiver>
     </application>
 
 </manifest>

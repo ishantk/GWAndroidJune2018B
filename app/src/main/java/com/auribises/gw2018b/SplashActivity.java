@@ -1,6 +1,7 @@
 package com.auribises.gw2018b;
 
 import android.app.DatePickerDialog;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.auribises.gw2018b.ui.RegisterUserActivity;
+import com.auribises.gw2018b.weekend.BroadcastActivity;
 import com.auribises.gw2018b.weekend.FragmentsActivity;
 import com.auribises.gw2018b.weekend.MyNavActivity;
 import com.auribises.gw2018b.weekend.VPActivity;
@@ -29,7 +31,7 @@ public class SplashActivity extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
             if(msg.what == 101){
-                Intent intent = new Intent(SplashActivity.this,VPActivity.class);
+                Intent intent = new Intent(SplashActivity.this,BroadcastActivity.class);
                 startActivity(intent);
                 finish();
             }
