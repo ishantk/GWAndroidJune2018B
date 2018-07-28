@@ -104,14 +104,18 @@
             android:name=".weekend.OurBroadcastReceiver"
             android:enabled="true"
             android:exported="true">
-
             <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED"/>
-                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
-                <action android:name="android.intent.action.BATTERY_LOW"/>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <action android:name="android.intent.action.BATTERY_LOW" />
             </intent-filter>
-
         </receiver>
+
+        <provider
+            android:name=".GWBContentProvider"
+            android:authorities="com.auribises.gw2018b.gwbcp"
+            android:enabled="true"
+            android:exported="true"></provider>
     </application>
 
 </manifest>
