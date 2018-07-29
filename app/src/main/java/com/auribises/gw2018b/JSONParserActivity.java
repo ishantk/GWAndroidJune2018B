@@ -67,9 +67,10 @@ public class JSONParserActivity extends AppCompatActivity {
         protected Object doInBackground(Object[] objects) {
 
             try{
-
+                String newsApiUrl = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8d617591297e457f9fda2f9641fb8e89";
                 // Create the URL
-                URL url = new URL("http://www.json-generator.com/api/json/get/chQLxhBjaW?indent=2");
+                //URL url = new URL("http://www.json-generator.com/api/json/get/chQLxhBjaW?indent=2");
+                URL url = new URL(newsApiUrl);
 
                 // Send the Request to the Server
                 URLConnection urlConnection = url.openConnection();
@@ -103,7 +104,7 @@ public class JSONParserActivity extends AppCompatActivity {
 
             // Parse JSON Data as Java Objects
 
-            try {
+            /*try {
 
                 JSONObject jsonObject = new JSONObject(response.toString());
                 JSONArray jsonArray = jsonObject.getJSONArray("bookstore");
@@ -131,15 +132,57 @@ public class JSONParserActivity extends AppCompatActivity {
 
                 listView.setAdapter(adapter);
 
+
+
+
                 progressDialog.dismiss();
 
             }catch (Exception e){
                 e.printStackTrace();
-            }
+            }*/
+
+            parseNewsApiResponse();
 
 
         }
     }
+
+    void parseNewsApiResponse(){
+
+        try {
+
+            JSONObject jsonObject = new JSONObject(response.toString());
+            String status = jsonObject.getString("status");
+            int totalResults = jsonObject.getInt("totalResults");
+
+            Log.i("Response","status: "+status+" totalResults: "+totalResults);
+
+            JSONArray jsonArray = jsonObject.getJSONArray("articles");
+
+            for(int i=0;i<jsonArray.length();i++){
+
+                JSONObject jObj = jsonArray.getJSONObject(i);
+                JSONObject jObj1 = jObj.getJSONObject("source");
+
+                String name = jObj1.getString("name");
+
+                String title = jObj.getString("title");
+                String author = jObj.getString("title");
+                String description = jObj.getString("title");
+                String url = jObj.getString("url");
+
+                Log.i("InnerResponse",name+" - "+title+" - "+description);
+
+            }
+
+            progressDialog.dismiss();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
 
 
 }

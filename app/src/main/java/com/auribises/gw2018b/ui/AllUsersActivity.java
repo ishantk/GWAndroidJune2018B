@@ -130,7 +130,9 @@ public class AllUsersActivity extends AppCompatActivity implements AdapterView.O
 
     void showOptions(){
         String[] items = {"View","Delete","Update","Cancel"};
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

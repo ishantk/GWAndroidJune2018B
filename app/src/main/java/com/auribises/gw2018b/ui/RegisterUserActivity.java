@@ -125,6 +125,7 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
     }
 
     boolean validateFields(){
+
         boolean flag = true;
 
         if(user.name.isEmpty())
